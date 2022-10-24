@@ -65,6 +65,25 @@ struct ContentView: View {
                         }.onDelete(perform: tasksVM.remove)
                     }
                 }
+                HStack{
+                    Text("Challenges").font(.title2)
+                    Spacer()
+                    Button{
+                        showingSheet.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }.padding(.trailing)
+                    .sheet(isPresented: $showingSheet) {
+                        AddTask(taskVM: tasksVM)
+                    }
+
+                }
+                .padding(.leading).frame(height: 0)
+                
+                List{
+                    //work from here
+                }
+                
                 
             }.navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
