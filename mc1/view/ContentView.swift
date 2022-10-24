@@ -14,34 +14,34 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
-                List{
+                Form{
                     HStack{
                         NavigationLink {
                            ProfileDetail()
-                        } // finish NavigationLink
-                    label: {
-                        HStack {
-                            Image(systemName: "person.fill").resizable().frame(width: 40, height: 40) } // finish HStack
-                        VStack{
-                            HStack{
-                            Text("Placeholder Profile")
-                                    .font(.title2)
-                            Spacer()
-                        } // finish HStack
-                                HStack {Text ("Rookie (Level 7)")
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill").resizable().frame(width: 40, height: 40)
+                            } // finish HStack
+                            VStack{
+                                HStack{
+                                    Text("Placeholder Profile")
+                                        .font(.title2)
+                                    Spacer()
+                                }
+                                HStack {
+                                    Text ("Rookie (Level 7)")
                                         .font(.subheadline)
                                         .padding(.bottom, -5.0)
-                                    Spacer()} // finish HStack
+                                    Spacer()
+                                    
+                                }
+                                // finish HStack
                                 HStack{
                                     ProgressView(value: 0.65)
                                         .progressViewStyle(LinearProgressViewStyle())
                                     Image(systemName: "tshirt.fill")
-                                } // finish Hstack
-                        } // finish Vstack
-                            //page
-                        } label: {
-                            Image(systemName: "globe").resizable().frame(width: 50, height: 50)
-                            Text("placeno test")
+                                }
+                            }
                         }
                     }
                 }.frame(height: 80)
@@ -106,8 +106,10 @@ struct ContentView: View {
                 }
                 
                 
-            }.navigationTitle("Dashboard")
+            }.scrollDisabled(true)
+            .navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
+                
             
         }
         
