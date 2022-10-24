@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var tasksVM = TaskViewModel()
+    @State private var showingSheet = false
+    
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
@@ -24,53 +27,44 @@ struct ContentView: View {
                 HStack{
                     Text("Tasks").font(.title2)
                     Spacer()
-                    Button {
-                        
+                    Button{
+                        showingSheet.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }.padding(.trailing)
+                    .sheet(isPresented: $showingSheet) {
+                        AddTask(taskVM: tasksVM)
+                    }
+
                 }
                 .padding(.leading).frame(height: 0)
                 
-                Section{
-                    
-                    List{
-                        Section(header: Text("Today"))
-                        {
-                            HStack{
-                                Image(systemName: "globe")
-                                Text("Test")
+                List{
+                    Section(header: Text("Today"))
+                    {
+                        ForEach(tasksVM.tasks) { task in
+                            if task.day == .today{
+                                HStack{
+                                    Image(systemName: "globe")
+                                    Text(task.title)
+                                }
                             }
-                            HStack{
-                                Image(systemName: "globe")
-                                Text("Test")
-                            }
-                            HStack{
-                                Image(systemName: "globe")
-                                Text("Test")
-                            }
-                        }
+                        }.onDelete(perform: tasksVM.remove)
+                    }
                         
                         
-                        Section(header: Text("Tomorrow"))
-                        {
-                            HStack{
-                                Image(systemName: "globe")
-                                Text("Test")
+                    Section(header: Text("Tomorrow"))
+                    {
+                        ForEach(tasksVM.tasks) { task in
+                            if task.day == .tomorrow{
+                                HStack{
+                                    Image(systemName: "globe")
+                                    Text(task.title)
+                                }
                             }
-                            HStack{
-                                Image(systemName: "globe")
-                                Text("Test")
-                            }
-                            HStack{
-                                Image(systemName: "globe")
-                                Text("Test")
-                            }
-                        }
-                        
+                        }.onDelete(perform: tasksVM.remove)
                     }
                 }
-                
                 
             }.navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
