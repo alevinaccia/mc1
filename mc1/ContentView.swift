@@ -20,7 +20,7 @@ struct ContentView: View {
                             //page
                         } label: {
                             Image(systemName: "globe").resizable().frame(width: 50, height: 50)
-                            Text("Placeholder test")
+                            Text("placeno test")
                         }
                     }
                 }.frame(height: 80)
