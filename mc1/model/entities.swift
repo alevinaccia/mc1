@@ -13,6 +13,7 @@ struct Task : Identifiable{
     var title : String
     var day : Day
     var notes : String
+    var isCompleted : Bool
     
 }
 
