@@ -15,3 +15,18 @@ struct Task : Identifiable{
     var notes : String
     
 }
+
+
+struct Challenge : Identifiable {
+    
+    var id : UUID
+    var title : String
+    var active : Bool
+    var description : String
+    
+    mutating func setActive(){
+        self.active = true
+    }
+}
+
+

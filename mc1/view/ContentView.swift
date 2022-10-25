@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var tasksVM = TaskViewModel()
+    @ObservedObject var challengesVM : ChallengeViewModel = ChallengeViewModel()
+    
     @State private var showingSheet = false
+    @State private var showingChallenges = false
+    
     
     var body: some View {
         NavigationView{
@@ -17,7 +21,7 @@ struct ContentView: View {
                 Form{
                     HStack{
                         NavigationLink {
-                           ProfileDetail()
+                            ProfileDetail()
                         } label: {
                             HStack {
                                 Image(systemName: "person.fill").resizable().frame(width: 40, height: 40)
@@ -53,10 +57,10 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "plus")
                     }.padding(.trailing)
-                    .sheet(isPresented: $showingSheet) {
-                        AddTask(taskVM: tasksVM)
-                    }
-
+                        .sheet(isPresented: $showingSheet) {
+                            AddTask(taskVM: tasksVM)
+                        }
+                    
                 }
                 .padding(.leading).frame(height: 0)
                 
@@ -72,8 +76,8 @@ struct ContentView: View {
                             }
                         }.onDelete(perform: tasksVM.remove)
                     }
-                        
-                        
+                    
+                    
                     Section(header: Text("Tomorrow"))
                     {
                         ForEach(tasksVM.tasks) { task in
@@ -90,26 +94,34 @@ struct ContentView: View {
                     Text("Challenges").font(.title2)
                     Spacer()
                     Button{
-                        showingSheet.toggle()
+                        showingChallenges.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }.padding(.trailing)
-                    .sheet(isPresented: $showingSheet) {
-                        AddTask(taskVM: tasksVM)
-                    }
-
+                        .sheet(isPresented: $showingChallenges) {
+                            AddChallenge(challengeVM: challengesVM)
+                        }
+                    
                 }
                 .padding(.leading).frame(height: 0)
                 
                 List{
-                    //work from here
+                    ForEach (challengesVM.challenge){challenge in
+                        if challenge.active == true{
+                            HStack  {
+                                Text(challenge.title)
+                                    .foregroundColor(Color.white)
+                                    
+                            }
+                        }
+                    }.listRowBackground(Color.black)
+                        
                 }
                 
-                
             }.scrollDisabled(true)
-            .navigationTitle("Dashboard")
+                .navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
-                
+            
             
         }
         

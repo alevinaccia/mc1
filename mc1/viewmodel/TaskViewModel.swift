@@ -20,3 +20,4 @@ class TaskViewModel: ObservableObject {
         tasks.remove(atOffsets: offsets)
     }
 }
+
