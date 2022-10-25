@@ -90,6 +90,7 @@ struct ContentView: View {
                         }.onDelete(perform: tasksVM.remove)
                     }
                 }
+                
                 HStack{
                     Text("Challenges").font(.title2)
                     Spacer()
