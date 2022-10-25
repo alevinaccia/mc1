@@ -63,12 +63,9 @@ struct ContentView: View {
                 List{
                     Section(header: Text("Today"))
                     {
-                        ForEach(tasksVM.tasks) { task in
+                        ForEach($tasksVM.tasks) { $task in
                             if task.day == .today{
-                                HStack{
-                                    Image(systemName: "globe")
-                                    Text(task.title)
-                                }
+                                taskView(task: $task)
                             }
                         }.onDelete(perform: tasksVM.remove)
                     }

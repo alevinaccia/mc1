@@ -9,10 +9,10 @@ import SwiftUI
 
 class TaskViewModel: ObservableObject {
 
-    @Published var tasks : [Task] = []
+    @Published var tasks : [Task] = [Task(id: UUID(), title: "ddd", day: .today, notes: "ddd", isCompleted: false)]
     
     func newTask(title : String, day : Day, notes : String) {
-        let ntask : Task = Task(id: UUID(), title: title, day: day, notes: notes)
+        let ntask : Task = Task(id: UUID(), title: title, day: day, notes: notes, isCompleted: false)
         tasks.append(ntask)
     }
 
