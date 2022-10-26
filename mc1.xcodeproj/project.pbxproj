@@ -71,7 +71,6 @@
 				B0770A912906E936002A8FA4 /* AddChallenge.swift */,
 				C096016E29015F92000BC2D7 /* ContentView.swift */,
 				C096016C29015F92000BC2D7 /* mc1App.swift */,
-				C03BA24029069D9C006C2556 /* ChallengePage.swift */,
 				D46B6A0D2907D97A008ED8EA /* taskView.swift */,
 			);
 			path = view;
