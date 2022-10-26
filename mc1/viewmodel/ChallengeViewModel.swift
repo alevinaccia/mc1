@@ -18,10 +18,7 @@ class ChallengeViewModel: ObservableObject {
     func updateChallenge(index : Int){
         challenge[index].toggleActive()
     }
-    
     func reupdateChallenge(at offsets: IndexSet){
         challenge[offsets.first!].toggleActive()
     }
-    
-    
 }

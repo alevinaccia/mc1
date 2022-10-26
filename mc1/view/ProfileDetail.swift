@@ -20,7 +20,10 @@ struct ProfileDetail: View {
         NavigationView{
             VStack(alignment: .center) {
                 VStack(alignment: .leading) {
-                    Text("Rookie (Level 7)")
+                    HStack{
+                        Text("Rookie (Level 7)")
+                        Text("\(userVM.user.money)$")
+                    }
                     HStack{
                         ProgressView(value: 0.65)
                             .progressViewStyle(LinearProgressViewStyle())
