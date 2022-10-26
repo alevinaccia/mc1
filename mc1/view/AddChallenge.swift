@@ -36,6 +36,7 @@ struct AddChallenge: View {
                             } // finish VStack
                         }
                     }
+                    .frame(width: 360.0, height: 80.0)
                 }
             }
         }

@@ -73,7 +73,6 @@ struct ContentView: View {
                             }
                         }.onDelete(perform: tasksVM.remove)                            
                     }
-                    .padding(.leading).frame(height: 0)
                     
                     Section(header: Text("Tomorrow"))
                     {
@@ -82,20 +81,8 @@ struct ContentView: View {
                                 HStack{
                                     taskView(task: $task)
                                 }
-                            }.onDelete(perform: tasksVM.remove)
-                        }
-                        
-                        
-                        Section(header: Text("Tomorrow"))
-                        {
-                            ForEach($tasksVM.tasks) { $task in
-                                if task.day == .tomorrow{
-                                    HStack{
-                                        taskView(task: $task)
-                                    }
-                                }
-                            }.onDelete(perform: tasksVM.remove)
-                        }
+                            }
+                        }.onDelete(perform: tasksVM.remove)
                     }
                 }
                 
@@ -110,15 +97,11 @@ struct ContentView: View {
                     .padding(.trailing)
                     .sheet(isPresented: $showingChallenges) {
                         AddChallenge(challengeVM: challengesVM)
-                    } // finish sheet
-                    } // finish HStack
-                    .padding([.leading, .bottom]).frame(height: 0)
-                    
-                }
-                .padding(.leading).frame(height: 0)
-                
+                        }// finish sheet
+                } // finish HStack
+                .padding([.leading, .bottom]).frame(height: 0)
                 List{
-                    ForEach (challengesVM.challenge){challenge in
+                    ForEach(challengesVM.challenge){challenge in
                         if challenge.active == true{
                             HStack  {
                                 Text(challenge.title)
@@ -135,9 +118,7 @@ struct ContentView: View {
                 .navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
             }
-        }// finish Navigation View
-        
-    }
+    }// finish Navigation View
 }
 
 struct ContentView_Previews: PreviewProvider {
