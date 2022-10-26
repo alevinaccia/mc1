@@ -2,13 +2,13 @@
 //  ChallengeViewModel.swift
 //  mc1
 //
-//  Created by Giovanni Mandato on 25/10/22.
-//
+//  Created by Giovanni Mandato on 25/10/22.//
 
 import SwiftUI
 
-class ChallengeViewModel: ObservableObject {
 
+class ChallengeViewModel: ObservableObject {
+    
     @Published var challenge : [Challenge] = [
         Challenge(id: UUID(), title: "10000 steps",
                   active: false,
@@ -23,24 +23,15 @@ class ChallengeViewModel: ObservableObject {
         Challenge (id:UUID(), title: "Let sunshine for 5 minutes",active: false,description: "Spend at least 5 minutes in the sunshine. Vitamin D is essential for our health."),
         Challenge (id:UUID(), title: "Read for 10 minutes",active: false,description: "Books are one of the best ways to learn more and explore the world around you. So read al least for 10 minutes")
     ]
-
-     
     
     
     func updateChallenge(index : Int){
-        challenge[index].setActive()
-   
-    } // finish func updateChallenge
+        challenge[index].toggleActive()
+    }
     
-    func addChallenge(id : UUID) {
-        //challenges.append(challenges.first(where: {$0.id == id})!)
-        //let lentgh = challenges.count
-        //challenges[lentgh].active.toggle()
-        
-        
-    } // finish func addChallenge
+    func reupdateChallenge(at offsets: IndexSet){
+        challenge[offsets.first!].toggleActive()
+    }
     
     
-    
-    
-} // finish ObservableObject
+}

@@ -17,6 +17,8 @@
 		C096016F29015F92000BC2D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C096016E29015F92000BC2D7 /* ContentView.swift */; };
 		C096017129015F94000BC2D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C096017029015F94000BC2D7 /* Assets.xcassets */; };
 		C096017429015F94000BC2D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C096017329015F94000BC2D7 /* Preview Assets.xcassets */; };
+		C0CC29D92909227100C2185E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC29D82909227100C2185E /* UserViewModel.swift */; };
+		C0CC29DB29092CEC00C2185E /* clothsDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC29DA29092CEC00C2185E /* clothsDataSet.swift */; };
 		D46B6A0E2907D97A008ED8EA /* taskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46B6A0D2907D97A008ED8EA /* taskView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		C096016E29015F92000BC2D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C096017029015F94000BC2D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C096017329015F94000BC2D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0CC29D82909227100C2185E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		C0CC29DA29092CEC00C2185E /* clothsDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothsDataSet.swift; sourceTree = "<group>"; };
 		D46B6A0D2907D97A008ED8EA /* taskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +63,8 @@
 			children = (
 				C03BA2392906892E006C2556 /* TaskViewModel.swift */,
 				B0770A932907C0E1002A8FA4 /* ChallengeViewModel.swift */,
+				C0CC29D82909227100C2185E /* UserViewModel.swift */,
+				C0CC29DA29092CEC00C2185E /* clothsDataSet.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 				B0770A922906E936002A8FA4 /* AddChallenge.swift in Sources */,
 				C03BA23529067CD6006C2556 /* AddTask.swift in Sources */,
 				B0770A942907C0E1002A8FA4 /* ChallengeViewModel.swift in Sources */,
+				C0CC29DB29092CEC00C2185E /* clothsDataSet.swift in Sources */,
+				C0CC29D92909227100C2185E /* UserViewModel.swift in Sources */,
 				C096016F29015F92000BC2D7 /* ContentView.swift in Sources */,
 				D46B6A0E2907D97A008ED8EA /* taskView.swift in Sources */,
 				C03BA238290683CE006C2556 /* entities.swift in Sources */,

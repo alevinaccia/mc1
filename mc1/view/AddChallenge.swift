@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AddChallenge: View {
     @Environment(\.dismiss) var dismiss
-   
+
+
+    
     var challengeVM : ChallengeViewModel
     
     var body: some View {
@@ -33,10 +35,9 @@ struct AddChallenge: View {
                                     .foregroundColor(.gray)
                             } // finish VStack
                         }
-                        .frame(width: 320.0, height: 65.0) // finish label
-                    } // finish Group Box
-                } // finish if challenge active
-            } // finish For Each
-        } // finish VStack
-    } // finish Some View
-} // finish View
+                    }
+                }
+            }
+        }
+    }
+} 
