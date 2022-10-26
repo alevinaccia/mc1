@@ -91,15 +91,16 @@ struct ContentView: View {
                     Spacer()
                     Button{
                         showingChallenges.toggle()
-                    } label: {
-                        Image(systemName: "plus")
-                    }.padding(.trailing)
-                        .sheet(isPresented: $showingChallenges) {
-                            AddChallenge(challengeVM: challengesVM)
-                        }
-                    
-                }
-                .padding(.leading).frame(height: 0)
+                    } // finish Button
+                label: {
+                    Image(systemName: "plus")
+                } // finish label
+                .padding(.trailing)
+                .sheet(isPresented: $showingChallenges) {
+                    AddChallenge(challengeVM: challengesVM)
+                } // finish sheet
+                } // finish HStack
+                .padding([.leading, .bottom]).frame(height: 0)
                 
                 List{
                     ForEach (challengesVM.challenge){challenge in
@@ -107,19 +108,17 @@ struct ContentView: View {
                             HStack  {
                                 Text(challenge.title)
                                     .foregroundColor(Color.white)
-                                    
-                            }
-                        }
-                    }.listRowBackground(Color.black)
-                        
-                }
-                
-            }.scrollDisabled(true)
-                .navigationTitle("Dashboard")
-                .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
-            
-            
-        }
+                            } // finish HStack
+                        } // finish true
+                    } // finish For Each
+                    .listRowBackground(Color.black)
+                    
+                } // finish List
+            } // finish VStack
+            .scrollDisabled(true)
+            .navigationTitle("Dashboard")
+            .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
+        } // finish Navigation View
         
     }
 }
