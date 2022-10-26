@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var tasksVM = TaskViewModel()
     @ObservedObject var challengesVM : ChallengeViewModel = ChallengeViewModel()
-    
-    @State private var showingSheet = false
+    @ObservedObject var userVM : UserViewModel = UserViewModel()
+    @State private var showingTasks = false
     @State private var showingChallenges = false
     
     
@@ -21,19 +21,19 @@ struct ContentView: View {
                 Form{
                     HStack{
                         NavigationLink {
-                            ProfileDetail()
+                            ProfileDetail(userVM: userVM)
                         } label: {
                             HStack {
                                 Image(systemName: "person.fill").resizable().frame(width: 40, height: 40)
                             } // finish HStack
                             VStack{
                                 HStack{
-                                    Text("Placeholder Profile")
+                                    Text(userVM.user.name)
                                         .font(.title2)
                                     Spacer()
                                 }
                                 HStack {
-                                    Text ("Rookie (Level 7)")
+                                    Text("Rookie (Level 7)")
                                         .font(.subheadline)
                                         .padding(.bottom, -5.0)
                                     Spacer()
@@ -48,16 +48,16 @@ struct ContentView: View {
                             }
                         }
                     }
-                }.frame(height: 80)
+                }.frame(height: 110)
                 HStack{
                     Text("Tasks").font(.title2)
                     Spacer()
                     Button{
-                        showingSheet.toggle()
+                        showingTasks.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }.padding(.trailing)
-                        .sheet(isPresented: $showingSheet) {
+                        .sheet(isPresented: $showingTasks) {
                             AddTask(taskVM: tasksVM)
                         }
                     
@@ -71,7 +71,7 @@ struct ContentView: View {
                             if task.day == .today{
                                 taskView(task: $task)
                             }
-                        }.onDelete(perform: tasksVM.remove)
+                        }.onDelete(perform: tasksVM.remove)                            
                     }
                     
                     

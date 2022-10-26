@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum ClothType {
+    case hat
+    case eyes
+    case beard
+    case shirt
+}
+
 struct Task : Identifiable{
     
     var id : UUID
@@ -16,7 +23,6 @@ struct Task : Identifiable{
     var isCompleted : Bool
     
 }
-
 
 struct Challenge : Identifiable {
     
@@ -30,5 +36,36 @@ struct Challenge : Identifiable {
     }
 
 }
+
+struct Cloth : Identifiable {
+    
+    var id : UUID
+    var name : String
+    var type : ClothType
+    
+    mutating func setName(newName : String){
+        self.name = newName
+    }
+}
+
+struct Outfit {
+    
+    var hat : Cloth
+    var eyes : Cloth
+    var beard : Cloth
+    var shirt : Cloth
+    
+}
+
+struct User {
+    
+    var name : String
+    var money : Int
+    var exp : Int
+    var level : Int
+    
+    var outfit : Outfit
+}
+
 
 

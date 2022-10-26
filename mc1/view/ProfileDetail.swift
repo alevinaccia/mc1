@@ -8,46 +8,71 @@
 import SwiftUI
 
 struct ProfileDetail: View {
-    var body: some View {
-        VStack {
-            VStack {
-                HStack{
-                    Text("Rookie (Level 7)")
-                    Spacer()
-                } // finish HStack
-                HStack{
-                    ProgressView(value: 0.65)
-                        .progressViewStyle(LinearProgressViewStyle())
-                    Image(systemName: "tshirt.fill")
-                } // finish HStack
-              
-            } // finish VStack
-            .padding([.top, .leading, .trailing])
-             
-            
-            HStack{
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .frame(width: 200.0, height: 200.0)
-                    
-            } // finish HStack
-            
-            HStack {
-                Text("Wardarobe")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, 22.0)
-                Spacer()
-            } //finish HStack
-            
-            Spacer()} //finish VStack
-    } // finish some View
-} // finish View var body
+    var userVM : UserViewModel
+
+    let data = cloths
     
-
-
-struct ProfileDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileDetail()
+    let columns = [
+        GridItem(.adaptive(minimum: 80))
+    ]
+    
+    var body: some View {
+        NavigationView{
+            VStack(alignment: .center) {
+                VStack(alignment: .leading) {
+                    Text("Rookie (Level 7)")
+                    HStack{
+                        ProgressView(value: 0.65)
+                            .progressViewStyle(LinearProgressViewStyle())
+                        Image(systemName: "tshirt.fill")
+                    }
+                    
+                }
+                .padding([.top, .leading, .trailing])
+                
+                
+                ZStack{
+                    Image("avatar")
+                        .resizable()
+                        .frame(width: 142, height: 194)
+                        .zIndex(0)
+                    Image(userVM.user.outfit.hat.name)
+                        .resizable()
+                        .frame(width: 152, height: 90)
+                        .position(x: 195, y: 75)
+                        .zIndex(0)
+                    Image(userVM.user.outfit.eyes.name)
+                        .resizable()
+                        .frame(width: 114, height: 44)
+                        .position(x: 195, y: 125)
+                        .zIndex(0)
+                    Image(userVM.user.outfit.beard.name)
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .position(x: 200, y: 120)
+                        .zIndex(0)
+                    
+                }.frame(height: 300)
+                HStack {
+                    Text("Wardarobe")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.leading, 22.0)
+                    Spacer()
+                }
+                ScrollView{
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(data) { cloth in
+                            Button {
+                                userVM.updateOutfit(newCloth: cloth)
+                            } label: {
+                                Image(cloth.name)
+                            }
+                        }
+                    }
+                }
+            }
+        }.navigationTitle("Peppe")
     }
 }
+
