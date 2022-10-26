@@ -25,9 +25,10 @@ struct Challenge : Identifiable {
     var active : Bool
     var description : String
     
-    mutating func setActive(){
-        self.active = true
+    mutating func toggleActive(){
+        self.active.toggle()
     }
+
 }
 
 

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AddChallenge: View {
     @Environment(\.dismiss) var dismiss
-   
+
+
+    
     var challengeVM : ChallengeViewModel
     
     var body: some View {
@@ -34,4 +36,4 @@ struct AddChallenge: View {
             }
         }
     }
-}
+} 

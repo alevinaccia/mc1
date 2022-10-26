@@ -107,11 +107,12 @@ struct ContentView: View {
                         if challenge.active == true{
                             HStack  {
                                 Text(challenge.title)
-                                    .foregroundColor(Color.white)
-                                    
+                                    .foregroundColor(Color.white)              
                             }
                         }
-                    }.listRowBackground(Color.black)
+                    }.onDelete(perform: challengesVM.reupdateChallenge)
+            
+                    .listRowBackground(Color.black)
                         
                 }
                 
