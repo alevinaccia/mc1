@@ -28,10 +28,15 @@ struct AddChallenge: View {
                         } label: {
                             VStack {
                                 Text(challenge.title)
+                                    .font(.title2)
+                                    .foregroundColor(.black)
                                 Text(challenge.description)
-                            }
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            } // finish VStack
                         }
                     }
+                    .frame(width: 360.0, height: 80.0)
                 }
             }
         }

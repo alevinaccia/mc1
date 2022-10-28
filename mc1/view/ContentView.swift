@@ -74,7 +74,6 @@ struct ContentView: View {
                         }.onDelete(perform: tasksVM.remove)                            
                     }
                     
-                    
                     Section(header: Text("Tomorrow"))
                     {
                         ForEach($tasksVM.tasks) { $task in
@@ -94,16 +93,15 @@ struct ContentView: View {
                         showingChallenges.toggle()
                     } label: {
                         Image(systemName: "plus")
-                    }.padding(.trailing)
-                        .sheet(isPresented: $showingChallenges) {
-                            AddChallenge(challengeVM: challengesVM)
-                        }
-                    
-                }
-                .padding(.leading).frame(height: 0)
-                
+                    } // finish label
+                    .padding(.trailing)
+                    .sheet(isPresented: $showingChallenges) {
+                        AddChallenge(challengeVM: challengesVM)
+                        }// finish sheet
+                } // finish HStack
+                .padding([.leading, .bottom]).frame(height: 0)
                 List{
-                    ForEach (challengesVM.challenge){challenge in
+                    ForEach(challengesVM.challenge){challenge in
                         if challenge.active == true{
                             HStack  {
                                 Text(challenge.title)
@@ -114,16 +112,13 @@ struct ContentView: View {
             
                     .listRowBackground(Color.black)
                         
-                }
-                
-            }.scrollDisabled(true)
+                    } // finish List
+                } // finish VStack
+                .scrollDisabled(true)
                 .navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
-            
-            
-        }
-        
-    }
+            }
+    }// finish Navigation View
 }
 
 struct ContentView_Previews: PreviewProvider {
