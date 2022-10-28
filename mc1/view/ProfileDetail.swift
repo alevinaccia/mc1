@@ -41,6 +41,7 @@ struct ProfileDetail: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, 22.0)
+                        
                     Spacer()
                 }
                 ScrollView{
