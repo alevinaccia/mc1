@@ -34,17 +34,17 @@ struct ProfileDetail: View {
                 ZStack{
                     Image("avatar")
                         .resizable()
-                        .frame(width: 142, height: 194)
+                        .frame(width: 254, height: 254)
                         .zIndex(0)
                     Image(userVM.user.outfit.hat.name)
                         .resizable()
-                        .frame(width: 152, height: 90)
-                        .position(x: 195, y: 75)
+                        .frame(width: 254, height: 254)
+                        .position(x: 198, y: 155)
                         .zIndex(0)
                     Image(userVM.user.outfit.eyes.name)
                         .resizable()
-                        .frame(width: 114, height: 44)
-                        .position(x: 195, y: 125)
+                        .frame(width: 254, height: 254)
+                        .position(x: 195, y: 148)
                         .zIndex(0)
                     Image(userVM.user.outfit.beard.name)
                         .resizable()
@@ -58,6 +58,7 @@ struct ProfileDetail: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, 22.0)
+                        
                     Spacer()
                 }
                 ScrollView{
@@ -67,6 +68,8 @@ struct ProfileDetail: View {
                                 userVM.updateOutfit(newCloth: cloth)
                             } label: {
                                 Image(cloth.name)
+                                    .resizable()
+                                    .frame(width: 64, height: 64)
                             }
                         }
                     }
