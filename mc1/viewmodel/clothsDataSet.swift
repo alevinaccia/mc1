@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-let cloths : [Cloth]  = [
-    Cloth(id: UUID(), name: "eyes_sunglasses", type: .eyes),
-    Cloth(id: UUID(), name: "hair_black_gel", type: .hat),
-    Cloth(id: UUID(), name: "hair_blonde", type: .hat),
-    Cloth(id: UUID(), name: "hair_brown", type: .hat)
+let CLOTHS : [Cloth]  = [
+    Cloth(id: UUID(), name: "eyes_sunglasses", type: .eyes, price: 100),
+    Cloth(id: UUID(), name: "hair_black_gel", type: .hat, price: 150),
+    Cloth(id: UUID(), name: "hair_blonde_short", type: .hat, price: 200),
+    Cloth(id: UUID(), name: "hair_brown", type: .hat, price: 75)
 ]

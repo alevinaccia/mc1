@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct taskView: View {
+    let taskRevenue : Int = 100
     @Binding var task: Task
+    let userVM : UserViewModel
+    @State var checked : Bool = false
     
     var body: some View {
         HStack {
             Image(systemName: task.isCompleted ? "checkmark.circle": "circle")
-            
                 .onTapGesture {
-                    task.isCompleted.toggle()
+                    if !checked {
+                        userVM.user.money += taskRevenue
+                        task.isCompleted.toggle()
+                        checked = true;
+                    }
                 }
-                .foregroundColor(.blue) // finish onTapGesture
-            Text(task.title)
-        } // finish HStack
-    } // finish Some View
-} // finish View
+                .foregroundColor(.blue)
+            Text(task.title).strikethrough( task.isCompleted ? true : false, color: Color.black)
+        }
+    }
+}
 

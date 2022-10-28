@@ -42,18 +42,25 @@ struct Cloth : Identifiable {
     var id : UUID
     var name : String
     var type : ClothType
+    var price : Int
+    var unlocked : Bool = false
     
     mutating func setName(newName : String){
         self.name = newName
     }
+    
+    mutating func unlock(){
+        self.unlocked = true
+    }
+    
 }
 
 struct Outfit {
     
-    var hat : Cloth
-    var eyes : Cloth
-    var beard : Cloth
-    var shirt : Cloth
+    var hat : String
+    var eyes : String
+    var beard : String
+    var shirt : String
     
 }
 

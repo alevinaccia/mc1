@@ -9,24 +9,39 @@ import SwiftUI
 
 class UserViewModel: ObservableObject {
     
+    
+    @Published var cloths : [Cloth] = CLOTHS
+    
     @Published var user : User = User(name: "Alessandro", money: 1000, exp: 1000, level: 7, outfit: Outfit(
-        hat: Cloth(id: UUID(), name: "hair_black_gel", type: .hat),
-            eyes: Cloth(id: UUID(), name: "eyes_sunglasses", type: .eyes),
-            beard: Cloth(id: UUID(), name: "", type: .beard),
-            shirt: Cloth(id: UUID(), name: "", type: .shirt)
+            hat: "hair_black_gel",
+            eyes: "eyes_sunglasses",
+            beard: "",
+            shirt: ""
                   ))
     
     func updateOutfit(newCloth : Cloth){
-        switch (newCloth.type){
-        case .hat:
-            user.outfit.hat.setName(newName: newCloth.name)
-        case .eyes:
-            user.outfit.eyes.setName(newName: newCloth.name)
-        case .beard:
-            user.outfit.beard.setName(newName: newCloth.name)
-        case .shirt:
-            user.outfit.shirt.setName(newName: newCloth.name)
+        if(newCloth.unlocked){
+            switch (newCloth.type){
+            case .hat:
+                user.outfit.hat = newCloth.name
+            case .eyes:
+                user.outfit.eyes = newCloth.name
+            case .beard:
+                user.outfit.beard = newCloth.name
+            case .shirt:
+                user.outfit.shirt = newCloth.name
+            }
+        }else{
+            if(user.money >= newCloth.price){
+                user.money -= newCloth.price
+                let indx = cloths.firstIndex(where: {$0.name == newCloth.name})!;
+                cloths[indx].unlock();
+            }
         }
+    }
+    
+    func tryCloth(cloth : Cloth){
+        //I have no idea
     }
     
 }

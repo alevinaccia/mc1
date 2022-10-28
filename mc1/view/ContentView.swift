@@ -69,7 +69,7 @@ struct ContentView: View {
                     {
                         ForEach($tasksVM.tasks) { $task in
                             if task.day == .today{
-                                taskView(task: $task)
+                                taskView(task: $task, userVM : userVM)
                             }
                         }.onDelete(perform: tasksVM.remove)                            
                     }
@@ -78,9 +78,7 @@ struct ContentView: View {
                     {
                         ForEach($tasksVM.tasks) { $task in
                             if task.day == .tomorrow{
-                                HStack{
-                                    taskView(task: $task)
-                                }
+                                taskView(task: $task, userVM : userVM)
                             }
                         }.onDelete(perform: tasksVM.remove)
                     }
@@ -93,32 +91,32 @@ struct ContentView: View {
                         showingChallenges.toggle()
                     } label: {
                         Image(systemName: "plus")
-                    } // finish label
+                    }
                     .padding(.trailing)
                     .sheet(isPresented: $showingChallenges) {
                         AddChallenge(challengeVM: challengesVM)
-                        }// finish sheet
-                } // finish HStack
+                        }
+                }
                 .padding([.leading, .bottom]).frame(height: 0)
                 List{
                     ForEach(challengesVM.challenge){challenge in
                         if challenge.active == true{
                             HStack  {
                                 Text(challenge.title)
-                                    .foregroundColor(Color.white)              
+                                    .foregroundColor(Color.white)
                             }
                         }
                     }.onDelete(perform: challengesVM.reupdateChallenge)
             
                     .listRowBackground(Color.black)
                         
-                    } // finish List
-                } // finish VStack
+                    }
+                }
                 .scrollDisabled(true)
                 .navigationTitle("Dashboard")
                 .background(Color(red: 0.949, green: 0.949, blue: 0.97, opacity: 1.0))
             }
-    }// finish Navigation View
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
