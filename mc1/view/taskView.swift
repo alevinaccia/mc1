@@ -9,6 +9,7 @@ import SwiftUI
 
 struct taskView: View {
     let taskRevenue : Int = 100
+    let expRevenue : Int = 50
     @Binding var task: Task
     let userVM : UserViewModel
     @State var checked : Bool = false
@@ -19,6 +20,7 @@ struct taskView: View {
                 .onTapGesture {
                     if !checked {
                         userVM.user.money += taskRevenue
+                        userVM.user.exp += expRevenue
                         task.isCompleted.toggle()
                         checked = true;
                     }

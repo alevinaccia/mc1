@@ -20,6 +20,7 @@ struct AddTask: View {
     @State private var notes = ""
     
     var body: some View {
+        NavigationView {
             Form{
                 Picker("What is your favorite color?", selection: $day) {
                     Text("Today").tag(Day.today)
@@ -28,14 +29,10 @@ struct AddTask: View {
                 .pickerStyle(.segmented)
                 TextField("Task title", text: $title)
                 TextField("Notes", text: $notes)
-                Button {
-                    taskVM.newTask(title: title, day: day, notes: notes)
-                    dismiss()
-                } label: {
-                    
-                    Text("Add Task")
-                }
-            }
+            }.navigationBarItems(leading: Button("Back", action: { dismiss() }), trailing: Button("Add Task", action : { taskVM.newTask(title: title, day: day, notes: notes)
+                dismiss() }))
+            .navigationTitle("Add Task")
+        }
     }
 }
 

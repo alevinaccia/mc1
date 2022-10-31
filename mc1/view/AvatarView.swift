@@ -7,29 +7,32 @@
 
 import SwiftUI
 
+
 struct AvatarView: View {
-    var userVM : UserViewModel
+    @ObservedObject var userVM : UserViewModel
+    var res : Int
+    var page : Bool
     
     var body: some View {
         ZStack{
             Image("avatar")
                 .resizable()
-                .frame(width: 142, height: 194)
+                .frame(width: 254 / CGFloat(res), height: 254 / CGFloat(res))
                 .zIndex(0)
             Image(userVM.user.outfit.hat)
                 .resizable()
-                .frame(width: 152, height: 90)
-                .position(x: 195, y: 75)
+                .frame(width: 254 / CGFloat(res), height: 254 / CGFloat(res))
+                .position(x: page ? 198 : 32, y: page ? 155 : 40)
                 .zIndex(0)
             Image(userVM.user.outfit.eyes)
                 .resizable()
-                .frame(width: 114, height: 44)
-                .position(x: 195, y: 125)
+                .frame(width: 254 / CGFloat(res), height: 254 / CGFloat(res))
+                .position(x: page ? 195 : 32, y: page ? 148 : 37)
                 .zIndex(0)
             Image(userVM.user.outfit.beard)
                 .resizable()
-                .frame(width: 100, height: 100)
-                .position(x: 200, y: 120)
+                .frame(width: 100 / CGFloat(res), height: 100 / CGFloat(res))
+                .position(x: page ? 200 : 10, y: page ? 120 : 40)
                 .zIndex(0)
             
         }

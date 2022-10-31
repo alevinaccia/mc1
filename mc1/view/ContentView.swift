@@ -24,7 +24,7 @@ struct ContentView: View {
                             ProfileDetail(userVM: userVM)
                         } label: {
                             HStack {
-                                Image(systemName: "person.fill").resizable().frame(width: 40, height: 40)
+                                AvatarView(userVM: userVM, res : 4, page : false).frame(width: 60)
                             } // finish HStack
                             VStack{
                                 HStack{

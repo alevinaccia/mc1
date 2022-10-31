@@ -34,14 +34,10 @@ class UserViewModel: ObservableObject {
         }else{
             if(user.money >= newCloth.price){
                 user.money -= newCloth.price
-                let indx = cloths.firstIndex(where: {$0.name == newCloth.name})!;
-                cloths[indx].unlock();
+                let indx = cloths.firstIndex(where: {$0.name == newCloth.name})!
+                cloths[indx].unlock()
             }
         }
     }
-    
-    func tryCloth(cloth : Cloth){
-        //I have no idea
-    }
-    
+
 }

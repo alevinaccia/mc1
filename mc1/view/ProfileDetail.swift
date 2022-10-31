@@ -35,7 +35,7 @@ struct ProfileDetail: View {
                 .padding([.top, .leading, .trailing])
                 
                 
-                AvatarView(userVM: userVM).frame(height: 300)
+                AvatarView(userVM: userVM, res : 1, page: true).frame(height: 300)
                 HStack {
                     Text("Wardarobe")
                         .font(.title)
@@ -52,13 +52,13 @@ struct ProfileDetail: View {
                             } label: {
                                 ZStack{
                                     if(!cloth.unlocked){
-                                        Image(cloth.name).zIndex(0).saturation(0.0)
+                                        Image(cloth.name).resizable().frame(width: 64.0, height: 64.0).saturation(0.0)
                                         VStack{
                                             Image(systemName: "lock")
                                             Text("\(cloth.price)$").zIndex(1).foregroundColor(Color.black)
                                         }
                                     }else{
-                                        Image(cloth.name).zIndex(0).saturation(1.0)
+                                        Image(cloth.name).resizable().frame(width: 64.0, height: 64.0).saturation(1.0)
                                     }
                                 }
                             }
@@ -66,7 +66,7 @@ struct ProfileDetail: View {
                     }
                 }
             }
-        }.navigationTitle("Peppe")
+        }.navigationTitle(userVM.user.name)
     }
 }
 

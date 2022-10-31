@@ -8,8 +8,12 @@
 import SwiftUI
 
 let CLOTHS : [Cloth]  = [
-    Cloth(id: UUID(), name: "eyes_sunglasses", type: .eyes, price: 100),
-    Cloth(id: UUID(), name: "hair_black_gel", type: .hat, price: 150),
-    Cloth(id: UUID(), name: "hair_blonde_short", type: .hat, price: 200),
-    Cloth(id: UUID(), name: "hair_brown", type: .hat, price: 75)
+        Cloth(id: UUID(), name: "eyes_sunglasses", type: .eyes, price: 100),
+        Cloth(id: UUID(), name: "hair_black_gel", type: .hat, price: 100),
+        Cloth(id: UUID(), name: "hair_blonde_short", type: .hat, price: 100),
+        Cloth(id: UUID(), name: "hair_", type: .hat, price: 100),
+        Cloth(id: UUID(), name: "hair_curly", type: .hat, price: 100),
+        Cloth(id: UUID(), name: "eyes_sunglasses1", type: .eyes, price: 100),
+        Cloth(id: UUID(), name: "hair_long", type: .hat, price: 100),
+        Cloth(id: UUID(), name: "hair_short", type: .hat, price: 100),
 ]
