@@ -29,9 +29,10 @@ struct AddTask: View {
                 .pickerStyle(.segmented)
                 TextField("Task title", text: $title)
                 TextField("Notes", text: $notes)
-            }.navigationBarItems(leading: Button("Back", action: { dismiss() }), trailing: Button("Add Task", action : { taskVM.newTask(title: title, day: day, notes: notes)
+            }.navigationBarItems(leading: Button("Back", action: { dismiss() }), trailing: Button("Add", action : { taskVM.newTask(title: title, day: day, notes: notes)
                 dismiss() }))
             .navigationTitle("Add Task")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
